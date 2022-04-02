@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h3 class="mb-3">Registracija</h3>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group mb-3">
+      <label for="username">Vartotojo vardas</label>
+      <input
+        name="username"
+        type="text"
+        class="form-control"
+        id="username"
+        aria-descibedby="usernameHelp"
+      />
+      <small id="usernameHelp" class="form-text text-muted"
+        >iki 150 simbolių.</small
+      >
+    </div>
+    <div class="form-group mb-3">
+      <label for="email">E-paštas</label>
+      <input
+        name="email"
+        type="text"
+        class="form-control"
+        id="email"
+        aria-descibedby="emailHelp"
+      />
+    </div>
+    <div class="form-group mb-3">
+      <label for="password">Slaptažodis</label>
+      <input
+        name="password"
+        type="password"
+        class="form-control"
+        id="password"
+        aria-descibedby="passwordHelp"
+      />
+      <small id="passwordHelp" class="form-text text-muted">
+        Naudokite 8 simbolius, didžiasias raides, skaičius, specialius
+        simbolius.</small
+      >
+    </div>
+    <div class="form-group mb-4">
+      <label for="password2">Pakartokite slaptažodį</label>
+      <input
+        name="password2"
+        type="password"
+        class="form-control"
+        id="password2"
+        aria-descibedby="passwordHelp2"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Registruotis</button>
+  </form>
+  <p>
+    Jeigu jau esi užsiregistravęs, <a href="{% url 'login' %}">prisijunk</a>
+  </p>
+</div>
+
+{% endblock %}
